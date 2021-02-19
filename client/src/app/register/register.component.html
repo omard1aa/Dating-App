@@ -1,0 +1,32 @@
+
+<div class="container">
+    <div class="parent" *ngIf="!registerMode">
+        <h1 class="text-center text-primary">Find your match</h1>
+        <hr style="width: 500px;" class="text-center text-primary">
+        <p class="text-center">Sign up, to view your matches</p>
+        <button class="alignbtn" mat-flat-button color="primary" (click)="toggleRegister()">Register</button>
+    </div>
+    <div class="parent">
+        <form #myForm="ngForm" (ngSubmit)="register()" validate *ngIf="registerMode">
+            <h1 class="text-center text-primary">Sign Up!</h1>
+            <hr>
+                <mat-form-field style="width: 500px;">
+                        <input class="text-dark" name="username" required 
+                        [(ngModel)]="model.username" matInput type="text" placeholder="Username">
+                        <mat-error>Username is required!</mat-error>
+                </mat-form-field><br>
+                <mat-form-field style="width: 500px;" >
+                    <input class="text-dark" name="password" required 
+                    [(ngModel)]="model.password" matInput type="password" placeholder="Password">
+                    <mat-error>Password is required!</mat-error>
+                </mat-form-field><br>
+            <div class="alignbtn">
+                <button mat-raised-button color="primary" type="submit" [disabled]="!myForm.valid">Register</button>
+                <button class="ml-2" (click)="toggleRegister()" type="button" mat-stroked-button color="primary">Cancel</button>        
+            </div>
+        </form>
+    
+    </div>
+</div>
+
+

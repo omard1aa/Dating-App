@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using API.Data;
+using API.Models;
 using API.Extensions;
 using API.Interfaces;
 using API.Services;
@@ -61,7 +61,8 @@ namespace API
 
             app.UseRouting();
 
-            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
+            app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod()
+            .WithOrigins("https://localhost:4200"));
 
             app.UseAuthentication();
 

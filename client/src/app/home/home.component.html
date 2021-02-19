@@ -1,0 +1,7 @@
+<app-register *ngIf="(accountService.currentUser$ | async) === null"></app-register>
+
+<div class="container" *ngIf="(accountService.currentUser$ | async)" style="margin-top: 100px;">
+  <div>
+    <p>home works!</p>
+  </div>
+</div>

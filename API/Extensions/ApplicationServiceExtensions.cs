@@ -1,4 +1,4 @@
-using API.Data;
+using API.Models;
 using API.Interfaces;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
@@ -15,9 +15,10 @@ namespace API.Extensions
 
             services.AddDbContext<DataContext>(options =>
             {
-                options.UseSqlite(config.GetConnectionString("DefaultConnection"));
-            });
+                //options.UseSqlite(config.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
 
+            });
             return services;
         }
     }
