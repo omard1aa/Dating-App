@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../services/account.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AccountService } from '../services/account.service';
 export class RegisterComponent implements OnInit {
   model: any = {};
   registerMode: boolean;
-  constructor(public accountService: AccountService) { }
+  constructor(public accountService: AccountService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -18,8 +19,10 @@ export class RegisterComponent implements OnInit {
   register(){
     this.accountService.register(this.model).subscribe(response => {
       console.log(response);
+      this.toastr.success('You have created an account!')
     }, error => {
       console.log(error);
+      this.toastr.error(error.error);
     });;
   }
 

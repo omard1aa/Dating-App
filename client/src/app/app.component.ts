@@ -10,11 +10,13 @@ import { User } from './_models/user';
 })
 export class AppComponent implements OnInit {
   title = "Dating App"
-  users: any;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+
+  getUsername(){
+    return localStorage.length > 0 ? true : false
+  }
 }

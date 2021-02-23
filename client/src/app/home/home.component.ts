@@ -9,7 +9,6 @@ import { User } from '../_models/user';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @Input() userName: any;
   user: User;
   constructor(public accountService: AccountService) { }
 
