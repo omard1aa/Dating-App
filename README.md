@@ -27,6 +27,8 @@ installed in your PC to run the application
 
 ``` dotnet ef database update ``` to create your databse and schema
 
+``` dotnet dev-certs https --trust ``` to trust HTTPS Certificate
+
 ``` Dotnet run ``` to run the backend server
 
 5- go to the Client folder 
