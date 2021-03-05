@@ -21,9 +21,15 @@ export class RegisterComponent implements OnInit {
       console.log(response);
       this.toastr.success('You have created an account!')
     }, error => {
-      console.log(error);
-      this.toastr.error(error.error);
-    });;
+        console.log(error);
+        if(error.error.errors)
+        {
+          for(const key in error.error.errors )
+            this.toastr.error(error.error.errors[key]);
+        }
+        else
+          this.toastr.error(error.error);
+    });
   }
 
   toggleRegister(){
