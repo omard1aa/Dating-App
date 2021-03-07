@@ -6,15 +6,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './test-errors.component.html',
   styleUrls: ['./test-errors.component.css']
 })
+
 export class TestErrorsComponent implements OnInit {
-  baseUrl: string = 'https://localhost:5001/api/buggy/';
+  baseUrl = 'https://localhost:5001/api/';
+  validatedErrors: string[] = [];
+
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
   }
 
   get404Error(){
-    this.httpClient.get(this.baseUrl + 'not-found').subscribe(response => {
+    this.httpClient.get(this.baseUrl + 'buggy/not-found').subscribe(response => {
       console.log(response);
     }, error => {
       console.log(error);
@@ -22,7 +25,7 @@ export class TestErrorsComponent implements OnInit {
   }
 
   get401Error(){
-    this.httpClient.get(this.baseUrl + 'auth').subscribe(response => {
+    this.httpClient.get(this.baseUrl + 'buggy/auth').subscribe(response => {
       console.log(response);
     }, error => {
       console.log(error);
@@ -30,7 +33,7 @@ export class TestErrorsComponent implements OnInit {
   }
 
   get400Error(){
-    this.httpClient.get(this.baseUrl + 'bad-request').subscribe(response => {
+    this.httpClient.get(this.baseUrl + 'buggy/bad-request').subscribe(response => {
       console.log(response);
     }, error => {
       console.log(error);
@@ -38,9 +41,10 @@ export class TestErrorsComponent implements OnInit {
   }
 
   get500Error(){
-    this.httpClient.get(this.baseUrl + 'server-error').subscribe(response => {
+    this.httpClient.get(this.baseUrl + 'buggy/server-error').subscribe(response => {
       console.log(response);
     }, error => {
+      
       console.log(error);
     })
   }
@@ -49,6 +53,7 @@ export class TestErrorsComponent implements OnInit {
     this.httpClient.post(this.baseUrl + 'account/register', {}).subscribe(response => {
       console.log(response);
     }, error => {
+      this.validatedErrors = error;
       console.log(error);
     })
   }

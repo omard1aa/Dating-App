@@ -10,8 +10,8 @@ You should have
 [NodeJS](https://nodejs.org/en/),
 [npm](https://www.npmjs.com/package/download),
 [Angular10 CLI](https://angular.io/cli#installing-angular-cli),
-[ASP.NET](https://dotnet.microsoft.com/download) Core 5.0 SDK and
-[Sql Server Database Management Studio ](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
+[Dotnet 5.0 SDK](https://dotnet.microsoft.com/download) and
+[Sql Server Management Studio ](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15)
 installed in your PC to run the application
 
 ## Installation
@@ -21,9 +21,11 @@ installed in your PC to run the application
 
 3- Go to backend project ``` cd API ```
 
-4- Run the following commands to configure your database:
+4- Delete old migrations if exist in ```migrations``` folder inside ```API``` project
 
-``` dotnet ef migrations add InitailMigration ``` to create your first migration
+5- Run the following commands to configure your database:
+
+``` dotnet ef migrations add InitialMigration ``` to create your first migration
 
 ``` dotnet ef database update ``` to create your databse and schema
 
@@ -31,13 +33,21 @@ installed in your PC to run the application
 
 ``` Dotnet run ``` to run the backend server
 
-5- go to the Client folder 
+
 
 ```
-cd ..
-cd client
-cd src
-cd app
+>>cd ..
+>>cd client
 ```
 
-6- Run the angular app ``` ng serve -- open ```
+6- Install npm:
+
+``` >>npm install ```
+
+7- go to the Client folder 
+```
+>>cd src
+>>cd app
+```
+
+8- Run the angular app ``` ng serve -- open ```
