@@ -16,6 +16,8 @@ import { SharedModule } from './_modules/shared.module';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     ListsComponent,
     FooterComponent,
     TestErrorsComponent,
+    NotFoundComponent,
+    ServerErrorComponent,
   ],
   imports: [
     BrowserModule,

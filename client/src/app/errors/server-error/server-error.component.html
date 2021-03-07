@@ -1,0 +1,7 @@
+<h1 class="text-center">Internal Server Error - Refreshing the page will make the error disappear!</h1>
+<ng-container *ngIf="error">
+    <h5 class="text-danger">Error: {{error.message}}</h5>
+    <p class="font-weight-bold">This is caused by the server side!</p>
+    <p>Following is the stack trace - this is investigation should start!</p>
+    <code class="mt-5" style="background-color: whitesmoke;"> {{error.details}}</code>
+</ng-container>
