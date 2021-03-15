@@ -10,6 +10,5 @@ namespace API.Models
         }
 
         public DbSet<AppUser> Users { get; set; }
-
     }
 }
