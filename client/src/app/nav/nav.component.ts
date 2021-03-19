@@ -32,7 +32,7 @@ export class NavComponent implements OnInit {
   login(){
     this.accountService.login(this.model).subscribe(response => {
       console.log(response);
-      this.router.navigateByUrl('/members')
+      this.router.navigateByUrl('/')
       this.toastr.success('You have logged in!')
       
     }, error => {
