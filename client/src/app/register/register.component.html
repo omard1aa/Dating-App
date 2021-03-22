@@ -6,7 +6,7 @@
             <hr class="my-4">
             <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
             <p class="lead">
-            <button class="btn btn-danger btn-lg alignbtn" (click)="toggleRegister()">Register</button>
+            <button class="btn btn-primary btn-lg alignbtn" (click)="toggleRegister()">Register</button>
             </p>
         </div>
     
@@ -25,7 +25,7 @@
                     <mat-error>Password is required!</mat-error>
                 </mat-form-field><br>
             <div class="btn-group d-flex">
-                <button class="alignbtn2 btn btn-danger" type="submit" [disabled]="!myForm.valid">Register</button>
+                <button class="alignbtn2 btn btn-primary" type="submit" [disabled]="!myForm.valid">Register</button>
                 <button class="btn btn-secondary ml-2 alignbtn2" (click)="toggleRegister()" type="button">Cancel</button>        
             </div>
         </form>

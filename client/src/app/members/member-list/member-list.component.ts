@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MembersService } from 'src/app/services/members.service';
+import { ProgressBarService } from 'src/app/services/progress-bar.service';
 import { Member } from 'src/app/_models/member';
 
 @Component({
@@ -9,15 +10,20 @@ import { Member } from 'src/app/_models/member';
 })
 export class MemberListComponent implements OnInit {
   members: Member[];
-  constructor(private membersService: MembersService) { }
+  constructor(private membersService: MembersService, 
+              private progressBarService: ProgressBarService) { }
 
   ngOnInit(): void {
+    this.progressBarService.init();
     this.loadMembers();
   }
 
   loadMembers(){
+    this.progressBarService.start();
     this.membersService.getMembers().subscribe(members => {
       this.members = members;
+      this.progressBarService.complete();
     });
+    
   }
 }

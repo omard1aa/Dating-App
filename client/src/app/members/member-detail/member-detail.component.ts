@@ -13,6 +13,9 @@ export class MemberDetailComponent implements OnInit {
   member: Member;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  currentUserName: any;
+  localStorageUsername: any;
+  isMyProfile: boolean;
   constructor(private memberService: MembersService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -27,6 +30,7 @@ export class MemberDetailComponent implements OnInit {
         preview: false
       }
     ]
+    
   }
 
   loadMember(){
@@ -35,7 +39,22 @@ export class MemberDetailComponent implements OnInit {
       .subscribe(member => {
         this.member = member;
         this.galleryImages = this.getImages();
+        // this.currentUserName = member.username;
+        // this.localStorageUsername = JSON.parse(localStorage.getItem('user')).username;
+        this.isMyProfile = this.checkProfile(member.username);
       });
+  }
+
+  checkProfile(currentUsername: string): boolean{
+    var user = JSON.parse(localStorage.getItem('user'));
+    if(user)
+    {
+      if(currentUsername === user.username)
+        return true;
+
+      return false;
+    }
+    return false;
   }
 
   getImages(): NgxGalleryImage[] {
