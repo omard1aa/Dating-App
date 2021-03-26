@@ -17,3 +17,23 @@
     display: flex;
     width: 50%;
   }
+  .bg-cover {
+    background-attachment: static;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: linear-gradient(to bottom, 
+    rgba(255,255,255,0.1) 100%,
+    rgba(255,255,255, 0.1) 100%), 
+    url('../../assets/pexels-min-an-1004014.jpg')
+}
+.jumbotron {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.centering {
+  text-align: center;
+}

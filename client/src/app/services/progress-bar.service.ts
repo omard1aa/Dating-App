@@ -19,6 +19,7 @@ export class ProgressBarService {
   }
 
   complete() {
+    
     this.progressRef.complete();
   }
   changeProgressColor(color: string) {

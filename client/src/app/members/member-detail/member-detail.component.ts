@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { MembersService } from 'src/app/services/members.service';
+import { ProgressBarService } from 'src/app/services/progress-bar.service';
 import { Member } from 'src/app/_models/member';
 
 @Component({
@@ -16,9 +17,10 @@ export class MemberDetailComponent implements OnInit {
   currentUserName: any;
   localStorageUsername: any;
   isMyProfile: boolean;
-  constructor(private memberService: MembersService, private activatedRoute: ActivatedRoute) { }
+  constructor(private memberService: MembersService, private activatedRoute: ActivatedRoute, private progressBarService: ProgressBarService) { }
 
   ngOnInit(): void {
+    this.progressBarService.init();
     this.loadMember();
     this.galleryOptions = [
       {
@@ -37,11 +39,11 @@ export class MemberDetailComponent implements OnInit {
     this.memberService.
     getMember(this.activatedRoute.snapshot.paramMap.get('username'))
       .subscribe(member => {
+        this.progressBarService.start();
         this.member = member;
         this.galleryImages = this.getImages();
-        // this.currentUserName = member.username;
-        // this.localStorageUsername = JSON.parse(localStorage.getItem('user')).username;
         this.isMyProfile = this.checkProfile(member.username);
+        this.progressBarService.complete();
       });
   }
 

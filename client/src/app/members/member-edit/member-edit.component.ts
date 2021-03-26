@@ -34,15 +34,22 @@ export class MemberEditComponent implements OnInit {
   }
 
   loadMember(){
-    this.memberService.getMember(this.user.username).subscribe(member => this.member = member);
+    this.memberService.getMember(this.user.username).subscribe(member => {
+      this.progressBar.start();
+      this.member = member;
+      this.progressBar.complete();
+    });
   }
 
   updateMember(){
-    this.progressBar.start();
-    this.progressBar.changeProgressColor('green');
-    console.log(this.member);
-    this.toastr.success('Your profile has been updated');
-    this.updateForm.reset(this.member);
-    this.progressBar.complete();
+    this.memberService.updateMember(this.member).subscribe(() => {
+      this.progressBar.changeProgressColor('#FF0000');
+      this.progressBar.start();
+      this.updateForm.resetForm(this.member);
+      setTimeout(()=>{
+        this.progressBar.complete();
+        this.toastr.success('Your profile has been updated.')
+      }, 500);
+    })
   }
 }

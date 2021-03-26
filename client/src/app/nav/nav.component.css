@@ -14,3 +14,8 @@
     /*change color of underline when focused*/
     background-color: black !important;
    }
+
+   .nav-item{
+     padding: 25px;
+   }
+   

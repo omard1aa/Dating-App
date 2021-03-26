@@ -59,7 +59,7 @@ namespace API.Data
             return await this._context.SaveChangesAsync() > 0;
         }
 
-        public void update(AppUser user)
+        public void Update(AppUser user)
         {
             this._context.Entry(user).State = EntityState.Modified;
         }

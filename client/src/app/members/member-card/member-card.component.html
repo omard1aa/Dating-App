@@ -1,10 +1,9 @@
-<div class="card mb-4 border-danger">
-    
+<div class="card mb-4 border-primary">
     <div class="card-img-wrapper"> 
         <img src="{{ member.photoUrl || './assets/user.png'}}" alt="{{ member.knownAs }}" class="card-img-top">
         <ul class="list-inline animate member-icons text-center">
             <li class="list-inline-item">
-                <button class="btn btn-primary btn-sm" routerLink='/members/{{ member.username }}'>
+                <button class="btn btn-info btn-sm" routerLink='/members/{{ member.username }}'>
                     <a class="fa fa-user"></a>
                 </button>
             </li>
@@ -12,14 +11,14 @@
                 <button class="btn btn-primary btn-sm"><a class="fa fa-heart"></a></button>
             </li>
             <li class="list-inline-item">
-                <button class="btn btn-primary btn-sm"><a class="fa fa-envelope"></a></button>
+                <button class="btn btn-success btn-sm"><a class="fa fa-envelope"></a></button>
             </li>
         </ul>
     </div>
-    <div class="card-body p-1">
-        <h6 class="card-title text-center">
+    <div class="card-footer text-muted text-center">
+        <h6 class="text-dark" style="font-size: 14px;">
             <i class="fa fa-user mr-2"> </i>{{ member.username }}
         </h6>
-        <p class="card-text text-center text-muted">{{ member.gender }}</p>
-    </div>
+        <p class="card-text">{{ member.city }}</p>
+      </div>
 </div>

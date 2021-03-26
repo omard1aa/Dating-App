@@ -11,6 +11,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery'
 import { NgProgressModule } from 'ngx-progressbar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 
 @NgModule({
   declarations: [],
@@ -29,6 +31,7 @@ import { NgProgressModule } from 'ngx-progressbar';
     TabsModule.forRoot(),
     NgxGalleryModule,
     NgProgressModule,
+    MatProgressBarModule
   ],
   exports: [
     MatButtonModule,
@@ -42,6 +45,7 @@ import { NgProgressModule } from 'ngx-progressbar';
     TabsModule,
     NgxGalleryModule,
     NgProgressModule,
+    MatProgressBarModule
   ]
 })
 export class SharedModule { }

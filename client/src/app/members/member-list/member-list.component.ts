@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { MembersService } from 'src/app/services/members.service';
 import { ProgressBarService } from 'src/app/services/progress-bar.service';
 import { Member } from 'src/app/_models/member';
@@ -9,21 +10,14 @@ import { Member } from 'src/app/_models/member';
   styleUrls: ['./member-list.component.css']
 })
 export class MemberListComponent implements OnInit {
-  members: Member[];
+  members$: Observable<Member[]>;
   constructor(private membersService: MembersService, 
               private progressBarService: ProgressBarService) { }
 
   ngOnInit(): void {
     this.progressBarService.init();
-    this.loadMembers();
-  }
-
-  loadMembers(){
     this.progressBarService.start();
-    this.membersService.getMembers().subscribe(members => {
-      this.members = members;
-      this.progressBarService.complete();
-    });
-    
+    this.members$ = this.membersService.getMembers();
+    this.progressBarService.complete();
   }
 }
